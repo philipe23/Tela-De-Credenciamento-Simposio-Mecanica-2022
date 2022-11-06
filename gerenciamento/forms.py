@@ -1,12 +1,11 @@
 from django import forms
-from .models import Participante, Movimentacao
+from .models import Participante
 
 
-class ParticipanteForm(forms.ModelForm):
-
-    class Meta:
-        model = Participante
-        fields = ('primeiro_nome', 'ultimo_nome', 'matricula')
+class ParticipanteForm(forms.Form):
+    primeiro_nome = forms.CharField(label='Primeiro Nome', required=True, max_length=255)
+    ultimo_nome = forms.CharField(label='Sobrenome', required=True, max_length=255)
+    matricula = forms.CharField(label='Matrícula', required=True, max_length=255)
 
 
 class PresencaForm(forms.Form):

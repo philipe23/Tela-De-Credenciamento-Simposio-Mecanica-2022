@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
-from .models import Participante, Movimentacao
+from .models import Participante, Movimentacao, ConfirmarEntrada
 from .forms import ParticipanteForm, PresencaForm
-import random
 
 # Create your views here.
 
@@ -17,10 +15,26 @@ def cadastramento(request):
     if request.method == 'POST':
         form = ParticipanteForm(request.POST)
         if form.is_valid():
-            form.save()
+            primeiro_nome = form.cleaned_data['primeiro_nome']
+            ultimo_nome = form.cleaned_data['ultimo_nome']
+            matricula = form.cleaned_data['matricula']
+            Participante.objects.create(
+                primeiro_nome=primeiro_nome, ultimo_nome=ultimo_nome, matricula=matricula
+            )
             return redirect('home')
 
     return render(request, 'gerenciamento/cadastramento.html', locals())
+
+
+def confirmar_entrada(request, pk):
+    participante = Participante.objects.get(id=pk)
+    print(participante)
+    participante.status = '1'
+    participante.save(update_fields=['status'])
+    print(participante.status)
+    ConfirmarEntrada.objects.create(participante=participante)
+
+    return redirect('home')
 
 
 def listar_participantes(request):
@@ -29,7 +43,7 @@ def listar_participantes(request):
 
 
 def listar_participantes_presentes(request):
-    participantes = Participante.objects.filter(status='Presente')
+    participantes = Participante.objects.filter(movimentacao__status='1')
     return render(request, 'gerenciamento/listar_participantes_presentes.html', locals())
 
 
