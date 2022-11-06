@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from .models import Participante
+from .models import Participante, Movimentacao
 from .forms import ParticipanteForm, EntradaForm
 import random
 
@@ -29,12 +29,19 @@ def listar_participantes(request):
 
 
 def registrar_entrada(request):
-    form = EntradaForm()
 
+    form = EntradaForm()
     if request.method == 'POST':
-        form = ParticipanteForm(request.POST)
+        form = EntradaForm(request.POST)
         if form.is_valid():
-            form.save()
+            participante = form.cleaned_data['participante']
+            codigo = form.cleaned_data['codigo']
+            codigo_verificador = participante.codigo
+            if codigo != codigo_verificador:
+                print('erro')
+            else:
+                entrada = Movimentacao.objects.create(participante=participante)
+                print("Entrada Registrada!")
             return redirect('home')
 
     return render(request, 'gerenciamento/registrar_entrada.html', locals())

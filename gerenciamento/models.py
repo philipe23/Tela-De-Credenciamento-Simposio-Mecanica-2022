@@ -27,4 +27,7 @@ class Participante(models.Model):
 class Movimentacao(models.Model):
     participante = models.ForeignKey(Participante, related_name='movimentacao', on_delete=models.CASCADE)
     horario_entrada = models.DateTimeField(auto_now_add=True, null=True)
-    horario_saida = models.DateTimeField(auto_now_add=True, null=True)
+    horario_saida = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return f' {self.participante.primeiro_nome} entrada: {self.horario_entrada} saída: {self.horario_saida} '
