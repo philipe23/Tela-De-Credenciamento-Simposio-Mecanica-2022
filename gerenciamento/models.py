@@ -14,10 +14,10 @@ class Participante(models.Model):
 
 
 class Entrada(models.Model):
-    participante = models.ManyToManyField(Participante, on_delete=models.CASCADE)
+    participante = models.ManyToManyField(Participante)
     horario = models.DateTimeField(auto_now=True)
 
+
 class Saida(models.Model):
-    participante = models.ManyToManyField(Participante, on_delete=models.CASCADE)
+    participante = models.ManyToManyField(Participante)
     horario = models.DateTimeField(auto_now=True)
-    
