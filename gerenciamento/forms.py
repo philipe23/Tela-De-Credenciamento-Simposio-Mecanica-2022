@@ -11,6 +11,8 @@ class ParticipanteForm(forms.ModelForm):
 
 class EntradaForm(forms.ModelForm):
 
+    participante = forms.ModelChoiceField(label='Participante', required=True, queryset=Participante.objects.all())
+
     class Meta:
         model = Movimentacao
-        fields = ('participante', 'horario_entrada')
+        fields = ('participante',)

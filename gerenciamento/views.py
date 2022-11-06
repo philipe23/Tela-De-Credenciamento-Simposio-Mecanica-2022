@@ -31,9 +31,11 @@ def listar_participantes(request):
 def registrar_entrada(request):
     form = EntradaForm()
 
-    if form.is_valid():
-        form.save()
-        return redirect('home')
+    if request.method == 'POST':
+        form = ParticipanteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
 
     return render(request, 'gerenciamento/registrar_entrada.html', locals())
 

@@ -6,6 +6,28 @@
 </head>
 <body>
       <h1>Essa É A Página Dos Participantes</h1>
+      <div>
+          {% for participante in participantes %}
+            <h2>
+                Nome
+            </h2>
+            <h3>
+                {{ participante.primeiro_nome }}
+            </h3>
+            <h2>
+                Matrícula
+            </h2>
+            <h3>
+                {{ participante.matricula }}
+            </h3>
+            <h2>
+                Código
+            </h2>
+            <h3>
+                {{ participante.codigo }}
+            </h3>
+          {% endfor %}
+      </div>
       <a href="{% url 'home' %}">Voltar</a>
 
 </body>
