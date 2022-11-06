@@ -24,10 +24,23 @@ class Participante(models.Model):
         return self.primeiro_nome + ' ' + self.ultimo_nome
 
 
+class Status:
+    AUSENTE = '0'
+    PRESENTE = '1'
+    SAIDA = '2'
+
+    CHOICES = (
+        (AUSENTE, 'Ausente'),
+        (PRESENTE, 'Presente'),
+        (SAIDA, 'Saída Antes do Horário Previsto')
+    )
+
+
 class Movimentacao(models.Model):
     participante = models.ForeignKey(Participante, related_name='movimentacao', on_delete=models.CASCADE)
+    status = models.CharField(max_length=1, choices=Status.CHOICES, default=Status.PRESENTE, null=True)
     horario_entrada = models.DateTimeField(auto_now_add=True, null=True)
-    horario_saida = models.DateTimeField(null=True)
+    horario_saida = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return f' {self.participante.primeiro_nome} entrada: {self.horario_entrada} saída: {self.horario_saida} '
+        return f' {self.participante.primeiro_nome} '

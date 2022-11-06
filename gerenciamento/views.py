@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .models import Participante, Movimentacao
-from .forms import ParticipanteForm, EntradaForm
+from .forms import ParticipanteForm, PresencaForm
 import random
 
 # Create your views here.
@@ -28,11 +28,17 @@ def listar_participantes(request):
     return render(request, 'gerenciamento/listar_participantes.html', locals())
 
 
-def registrar_entrada(request):
+def listar_participantes_presentes(request):
+    participantes = Participante.objects.filter(status='Presente')
+    return render(request, 'gerenciamento/listar_participantes_presentes.html', locals())
 
-    form = EntradaForm()
+
+
+def registrar_presenca(request):
+
+    form = PresencaForm()
     if request.method == 'POST':
-        form = EntradaForm(request.POST)
+        form = PresencaForm(request.POST)
         if form.is_valid():
             participante = form.cleaned_data['participante']
             codigo = form.cleaned_data['codigo']
@@ -40,12 +46,8 @@ def registrar_entrada(request):
             if codigo != codigo_verificador:
                 print('erro')
             else:
-                entrada = Movimentacao.objects.create(participante=participante)
-                print("Entrada Registrada!")
+                Movimentacao.objects.create(participante=participante)
+                print("Presença Registrada!")
             return redirect('home')
 
     return render(request, 'gerenciamento/registrar_entrada.html', locals())
-
-
-def registrar_saida(request):
-    return render(request, 'gerenciamento/registrar_saida.html', locals())
