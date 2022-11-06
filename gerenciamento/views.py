@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ParticipanteForm
+import random
 
 # Create your views here.
 
@@ -8,6 +10,17 @@ def home(request):
 
 
 def cadastramento(request):
+    form = ParticipanteForm()
+
+    if request.method == 'POST':
+        print(request.POST)
+        form = ParticipanteForm(request.POST)
+        if form.is_valid():
+            print("aqui")
+            form.save()
+            return redirect(request, 'gerenciamento/cadastramento.html', locals())
+
+    context = {'form': form}
     return render(request, 'gerenciamento/cadastramento.html', locals())
 
 

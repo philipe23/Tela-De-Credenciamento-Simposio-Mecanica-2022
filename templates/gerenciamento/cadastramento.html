@@ -5,8 +5,23 @@
     <title>Simpósio De Mecânica 2022</title>
 </head>
 <body>
-      <h1>Essa É A Página De Cadastramento</h1>
-      <a href="{% url 'home' %}">Voltar</a>
-
+<h1>Essa É A Página De Cadastramento</h1>
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+<!--            {% if field.label == 'Codigo' %}-->
+<!--                {{ form.field.as_hidden }}-->
+<!--            {% else %}-->
+            <label>
+            {{ field.label }}
+            </label>
+            {{ field }}
+<!--            {% endif %}-->
+        {% endfor %}
+        <input type="submit">
+    </form>
+    <a href="{% url 'home' %}">Voltar</a>
+</div>
 </body>
 </html>
