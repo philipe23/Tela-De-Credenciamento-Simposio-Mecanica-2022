@@ -20,11 +20,7 @@ class Participante(models.Model):
         return self.primeiro_nome + ' ' + self.ultimo_nome
 
 
-class Entrada(models.Model):
-    participante = models.ManyToManyField(Participante)
-    horario = models.DateTimeField(auto_now=True)
-
-
-class Saida(models.Model):
-    participante = models.ManyToManyField(Participante)
-    horario = models.DateTimeField(auto_now=True)
+class Movimentacao(models.Model):
+    participante = models.ForeignKey(Participante, related_name='movimentacao', on_delete=models.CASCADE)
+    horario_entrada = models.DateTimeField(auto_now=True)
+    horario_saida = models.DateTimeField(auto_now=True)
