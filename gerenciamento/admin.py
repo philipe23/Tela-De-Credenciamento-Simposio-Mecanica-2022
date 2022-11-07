@@ -12,7 +12,7 @@ class ParticipanteAdmin(admin.ModelAdmin):
 
 @admin.register(ConfirmarEntrada)
 class ConfirmarEntradaAdmin(admin.ModelAdmin):
-    list_display = ['participante', 'horario_entrada', 'horario_saida']
+    list_display = ['participante', 'dia', 'horario_entrada', 'horario_saida']
     search_fields = ('participante',)
 
 

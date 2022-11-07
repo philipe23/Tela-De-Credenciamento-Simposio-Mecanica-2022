@@ -28,13 +28,11 @@ def cadastramento(request):
 
 def confirmar_entrada(request, pk):
     participante = Participante.objects.get(id=pk)
-    print(participante)
     participante.status = '1'
     participante.save(update_fields=['status'])
-    print(participante.status)
     ConfirmarEntrada.objects.create(participante=participante)
 
-    return redirect('home')
+    return redirect('listar_participantes')
 
 
 def listar_participantes(request):

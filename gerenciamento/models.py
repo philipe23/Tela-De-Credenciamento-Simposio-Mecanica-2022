@@ -36,6 +36,7 @@ class Participante(models.Model):
 
 class ConfirmarEntrada(models.Model):
     participante = models.ForeignKey(Participante, related_name='confirmar', on_delete=models.CASCADE)
+    dia = models.DateField(auto_now_add=True, null=True)
     horario_entrada = models.DateTimeField(auto_now_add=True, null=True)
     horario_saida = models.DateTimeField(auto_now=True, null=True)
 
