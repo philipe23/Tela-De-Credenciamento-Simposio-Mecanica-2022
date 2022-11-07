@@ -1,40 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Font Awesome CSS-->
+        <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/universal/2-0-1/vendor/font-awesome/css/font-awesome.min.css">
+    <div class="top-bar bg-dark text-dark">
+            <div class="container">
+              <div class="row d-flex align-items-center">
+                <div class="col-md-40 d-md-block d-none">
+                    <img src="https://lh5.googleusercontent.com/IzzTMuf7KSfN9hNV9Q18VEB6VF_qx1JU-ks-0eO0rvuhE8KYxGoQwbunVWXTh5JijjlnfO0LpsKKJkD02upfx30=w1280" class="img-fluid float-center"
+                         alt="Simpósio de Engenharia Mecânica" width="200px"><img src="https://lh4.googleusercontent.com/x6fHUrG52jT0fUoqOxrUJAcJYLhdCwe862zqTGgz7XiH3dcL3b_XPpqa9m8OP4j685riJyK3Xn3SJJVjGaT7AKyaJMPZDILg-J9iCgidbjBKtxLctkw_8SMo8xQnSbGI-Q=w1280" class="img-fluid float-right"
+                         alt="Simpósio de Engenharia Mecânica" width="200px">
+                </div>
+              </div>
+            </div>
+          </div>
     <meta charset="UTF-8">
-    <title>Simpósio De Mecânica 2022</title>
+    <title>SIMEC 2.0 - Listar Participantes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-      <h1>Essa É A Página Dos Participantes</h1>
-      <div>
-          {% for participante in participantes %}
-            <h2>
-                Nome
-            </h2>
-            <h3>
-                {{ participante.primeiro_nome }}
-            </h3>
-            <h2>
-                Matrícula
-            </h2>
-            <h3>
-                {{ participante.matricula }}
-            </h3>
-            <h2>
-                Código
-            </h2>
-            <h3>
-                {{ participante.codigo }}
-            </h3>
-          <h2>
-                Confirmar Entrada
-            </h2>
-            <h3>
-                <a href="{% url 'confirmar_entrada' participante.pk %}">Confirmar</a>
-            </h3>
-          {% endfor %}
+        <div class="container mt-1 ">
+                  <div class="lead mr-md-3">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <p></p>
+                     <br><br> <p><a href="{% url 'home' %}" class="btn btn-warning btn-sm me-2 text-white">SIMEC 2.0 - Página Inicial</a>
+                      <a href="{% url 'registrar_entrada' %}" class="btn btn-warning btn-sm me-4 text-white">SIMEC 2.0 - Registro</a>
+                      <a href="{% url 'cadastramento' %}" class="btn btn-warning btn-sm me-6 text-white">SIMEC 2.0 - Cadastrar Novos Participantes</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+<body>
+<div class="container mt-2 bg-dark text-warning"><br><br>
+    <h2><b> LISTA DE PARTICIPANTES </b></h2> </p><br><br>
+</div>
+<div class="container mt-2 bg-dark text-light"><br><br>
+        <table class="table table-participantes">
+            <tr>
+                <th><span class="margin-status-icon "></span>Nome</th>
+                <th>Matricula</th>
+                <th>Código</th>
+                <th>Ações</th>
+            </tr>
+              {% for participante in participantes %}
+                <tr>
+                    <td> {{ participante }} </td>
+                    <td> {{ participante.matricula }} </td>
+                    <td> {{ participante.codigo }} </td>
+                    <td> <a href="{% url 'confirmar_entrada' participante.pk %}" class="btn btn-warning btn-sm me-6 text-white">Confirmar</a> </td>
+                </tr>
+              {% endfor %}
+          </table>
       </div>
-      <a href="{% url 'home' %}">Voltar</a>
+    <div class="container mt-2 bg-dark text-warning"><br><br>
 
+        <p class="lead text-warning"> <h3> <b> PROGRAMAÇÃO: </b> </h3></p>
+        <p class="lead text-light"> <h8> <b>Local:</b> Didática 6, sala 103 </p>
+
+        <p class="lead text-warning"> <b>Dia 07/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com o CCET </p>
+        <p class="lead text-light"> <b>Tarde (13h-17h): </b>  Palestras do Prof. Dr. André Luiz de Moraes Costa e dos discentes José Gabriel
+            Andrade Silva e João Higor Menezes de Souza </p>
+        <p class="lead text-warning"> <b>Dia 08/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com os Profs. Leonardo Nogueira e José Aguiar dos Santos Junior</p>
+        <p class="lead text-warning"> <b>Dia 09/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com a Prof.ª Jaqueline Altidis e Wilson Luciano de Souza</p>
+        <p class="lead text-warning"> <b>Dia 10/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com o Prof. Alexandre Ramos e Douglas Bressan Riffel</p>
+        <p class="lead text-warning"> <b>Dia 11/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestra da Prof.ª Dr.ª Ana Cristina Ribeiro Veloso e Mesa Redonda</h8></p>
+        <br><br> <p><a href="{% url 'home' %}" class="btn btn-warning btn-sm me-2 text-white">SIMEC 2.0 - Voltar</a><br><br>
 </body>
 </html>

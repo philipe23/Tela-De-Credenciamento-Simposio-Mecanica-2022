@@ -1,14 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Font Awesome CSS-->
+        <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/universal/2-0-1/vendor/font-awesome/css/font-awesome.min.css">
+    <div class="top-bar bg-dark text-dark">
+            <div class="container">
+              <div class="row d-flex align-items-center">
+                <div class="col-md-40 d-md-block d-none">
+                    <img src="https://lh5.googleusercontent.com/IzzTMuf7KSfN9hNV9Q18VEB6VF_qx1JU-ks-0eO0rvuhE8KYxGoQwbunVWXTh5JijjlnfO0LpsKKJkD02upfx30=w1280" class="img-fluid float-center"
+                         alt="Simpósio de Engenharia Mecânica" width="200px"><img src="https://lh4.googleusercontent.com/x6fHUrG52jT0fUoqOxrUJAcJYLhdCwe862zqTGgz7XiH3dcL3b_XPpqa9m8OP4j685riJyK3Xn3SJJVjGaT7AKyaJMPZDILg-J9iCgidbjBKtxLctkw_8SMo8xQnSbGI-Q=w1280" class="img-fluid float-right"
+                         alt="Simpósio de Engenharia Mecânica" width="200px">
+                </div>
+              </div>
+            </div>
+          </div>
     <meta charset="UTF-8">
-    <title>Simpósio De Mecânica 2022</title>
+    <title>SIMEC 2.0</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Essa É A Página Inicial</h1>
-    <a href="{% url 'cadastramento' %}">Cadastrar Novo Participante</a>
-    <a href="{% url 'listar_participantes' %}">Ver Participantes</a>
-    <a href="{% url 'listar_participantes_presentes' %}">Ver Participantes</a>
-    <a href="{% url 'registrar_entrada' %}">Registrar Entrada</a>
+        <div class="container mt-1 ">
+                  <div class="lead mr-md-3">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <p></p>
+                     <br><br> <p><a href="{% url 'cadastramento' %}" class="btn btn-warning btn-sm me-2 text-black">SIMEC 2.0 - Cadastrar Novo Participante</a>
+                      <a href="{% url 'listar_participantes' %}" class="btn btn-warning btn-sm me-4 text-white">SIMEC 2.0 - Ver Participantes</a>
+                      <a href="{% url 'registrar_entrada' %}" class="btn btn-warning btn-sm me-6 text-white">SIMEC 2.0 - Registros</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+        <div class="container mt-2 bg-dark text-warning"><br><br>
+        <p class="lead"> <h1> BEM-VINDOS À III SIMEC! NOSSA SIMEC 2.0 <b></h1> </p><br><br>
+
+        <p class="lead"> <h5> <b> Sobre nós: </b> </h5></p>
+        <p class="lead text-light"> <h8> O Simpósio de Engenharia Mecânica traz este ano as novas tecnologias empregadas na
+            Engenharia Mecânica e tão essenciais em nosso dia a dia e no mercado de trabalho. Embora seja a Mecânica
+            uma engenharia de base, o mundo se desenvolve ao passo que exige cada vez mais no mercado. Visto isso, a
+            SIMEC deste ano propõe uma imersão dentro do mundo das novas tecnologias e aproxima mais um pouco os
+            universitários do real mercado que os aguarda. O evento conta com vários cursos e palestras sobre novas
+            tecnologias e sobre como o Engenheiro Mecânico pode se adequar a elas.</h8></p>
+
+        <p class="lead text-warning"> <h5> <b> Sobre a Programação: </b> </h5></p>
+        <p class="lead text-light"> <h8> <b>Local:</b> Didática 6, sala 103 </p>
+
+        <p class="lead text-warning"> <b>Dia 07/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com o CCET </p>
+        <p class="lead text-light"> <b>Tarde (13h-17h): </b>  Palestras do Prof. Dr. André Luiz de Moraes Costa e dos discentes José Gabriel
+            Andrade Silva e João Higor Menezes de Souza </p>
+        <p class="lead text-warning"> <b>Dia 08/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com os Profs. Leonardo Nogueira e José Aguiar dos Santos Junior</p>
+        <p class="lead text-warning"> <b>Dia 09/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com a Prof.ª Jaqueline Altidis e Wilson Luciano de Souza</p>
+        <p class="lead text-warning"> <b>Dia 10/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com o Prof. Alexandre Ramos e Douglas Bressan Riffel</p>
+        <p class="lead text-warning"> <b>Dia 11/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestra da Prof.ª Dr.ª Ana Cristina Ribeiro Veloso e Mesa Redonda</h8></p>
+
+        <p class="lead text-warning"> <h5> <b> Sobre o CAEMEC: </b> </h5></p>
+        <p class="lead text-light"> <h8> O Centro Acadêmico de Engenharia Mecânica é como uma ponte entre os alunos e o departamento, sempre
+        lutando para o melhoramento do curso e para um ambiente mais saudável e melhor para o corpo discente. Hoje, o CAEMEC DÁ
+        início ao terceiro SIMEC sob nova direção. Esperamos que vocês gostem do evento.</h8></p>
+        </div>
+          <div class="container my-2">
+
+		     <hr class="mt-2">
+              <a href="{% url 'cadastramento' %}" class="btn btn-warning btn-sm me-2 text-white">Cadastrar Novo Participante</a>
+              <a href="{% url 'listar_participantes' %}" class="btn btn-warning btn-sm me-4 text-white">Ver Participantes</a>
+              <a href="{% url 'registrar_entrada' %}" class="btn btn-warning btn-sm me-6 text-white">Registrar Entrada</a>
+
+          </div>
+
+          <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
 </body>
 </html>

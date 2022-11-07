@@ -42,12 +42,6 @@ def listar_participantes(request):
     return render(request, 'gerenciamento/listar_participantes.html', locals())
 
 
-def listar_participantes_presentes(request):
-    participantes = Participante.objects.filter(movimentacao__status='1')
-    return render(request, 'gerenciamento/listar_participantes_presentes.html', locals())
-
-
-
 def registrar_presenca(request):
 
     form = PresencaForm()

@@ -1,23 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Font Awesome CSS-->
+        <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/universal/2-0-1/vendor/font-awesome/css/font-awesome.min.css">
+    <div class="top-bar bg-dark text-dark">
+            <div class="container">
+              <div class="row d-flex align-items-center">
+                <div class="col-md-40 d-md-block d-none">
+                    <img src="https://lh5.googleusercontent.com/IzzTMuf7KSfN9hNV9Q18VEB6VF_qx1JU-ks-0eO0rvuhE8KYxGoQwbunVWXTh5JijjlnfO0LpsKKJkD02upfx30=w1280" class="img-fluid float-center"
+                         alt="Simpósio de Engenharia Mecânica" width="200px"><img src="https://lh4.googleusercontent.com/x6fHUrG52jT0fUoqOxrUJAcJYLhdCwe862zqTGgz7XiH3dcL3b_XPpqa9m8OP4j685riJyK3Xn3SJJVjGaT7AKyaJMPZDILg-J9iCgidbjBKtxLctkw_8SMo8xQnSbGI-Q=w1280" class="img-fluid float-right"
+                         alt="Simpósio de Engenharia Mecânica" width="200px">
+                </div>
+              </div>
+            </div>
+          </div>
     <meta charset="UTF-8">
-    <title>Simpósio De Mecânica 2022</title>
+    <title>SIMEC 2.0 - CADASTRAMENTO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Essa É A Página De Cadastramento</h1>
-<div>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {% for field in form %}
-            <label>
-            {{ field.label }}
-            </label>
-            {{ field }}
-        {% endfor %}
-        <input type="submit">
-    </form>
-    <a href="{% url 'home' %}">Voltar</a>
-</div>
+        <div class="container mt-1 ">
+                  <div class="lead mr-md-3">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <p></p>
+                     <br><br> <p><a href="{% url 'home' %}" class="btn btn-warning btn-sm me-2 text-white">SIMEC 2.0 - Página Inicial</a>
+                      <a href="{% url 'listar_participantes' %}" class="btn btn-warning btn-sm me-4 text-white">SIMEC 2.0 - Ver Participantes</a>
+                      <a href="{% url 'registrar_entrada' %}" class="btn btn-warning btn-sm me-6 text-white">SIMEC 2.0 - Registrar Entrada</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+<body>
+<div class="container mt-2 bg-dark text-light"><br><br>
+        <p class="lead text-light"> <h1><b> CADASTRO DE NOVOS INTEGRANTES </b></h1> </p><br><br>
+            <h7><div class="lead text-warning">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <label>
+                        {{ field.label }}
+                        </label>
+                        {{ field }}
+                    {% endfor %}
+                    <input type="submit" class="btn btn-warning btn-sm me-4 text-white">
+                </form></h7>
+            </div>
+    <div class="container mt-2 bg-dark text-warning"><br><br>
+
+        <p class="lead text-warning"> <h3> <b> PROGRAMAÇÃO: </b> </h3></p>
+        <p class="lead text-light"> <h8> <b>Local:</b> Didática 6, sala 103 </p>
+
+        <p class="lead text-warning"> <b>Dia 07/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com o CCET </p>
+        <p class="lead text-light"> <b>Tarde (13h-17h): </b>  Palestras do Prof. Dr. André Luiz de Moraes Costa e dos discentes José Gabriel
+            Andrade Silva e João Higor Menezes de Souza </p>
+        <p class="lead text-warning"> <b>Dia 08/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com os Profs. Leonardo Nogueira e José Aguiar dos Santos Junior</p>
+        <p class="lead text-warning"> <b>Dia 09/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com a Prof.ª Jaqueline Altidis e Wilson Luciano de Souza</p>
+        <p class="lead text-warning"> <b>Dia 10/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestras com o Prof. Alexandre Ramos e Douglas Bressan Riffel</p>
+        <p class="lead text-warning"> <b>Dia 11/11 </b> </p>
+        <p class="lead text-light"> <b>Manhã (08h-12h): </b>  Palestra da Prof.ª Dr.ª Ana Cristina Ribeiro Veloso e Mesa Redonda</h8></p>
+        <br><br> <p><a href="{% url 'home' %}" class="btn btn-warning btn-sm me-2 text-white">SIMEC 2.0 - Voltar</a><br><br>
 </body>
 </html>
